@@ -27,10 +27,10 @@ app.get("/users", async (req, res) => {
 });
 
 app.post("/users", async (req, res) => {
-    const {first_name, last_name, email, document_number, gender, address, phone} = req.body
+    const {first_name,last_name,email,document_number,gender,address,phone} = req.body
     try {
-        let result = await pool.query('INSERT INTO students (first_name, last_name, email, document_number, gender, address, phone) VALUES($1, $2, $3, $4, $5, $6, $7)',
-            [first_name, last_name, email, document_number, gender, address, phone]
+        let result = await pool.query('INSERT INTO students (first_name,last_name,email,document_number,gender,address,phone) VALUES($1,$2,$3,$4,$5,$6,$7)',
+            [first_name,last_name,email,document_number,gender,address,phone]
         );
         res.status(201).json(result.rows[0]);
     } catch (error) {
